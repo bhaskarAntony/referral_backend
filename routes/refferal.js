@@ -32,7 +32,7 @@ routes.post('/new/referral', async (req, res) => {
 
     res.json({
       success: true,
-      link: `http://localhost:3000/enroll/course/${referralId}`,
+      link: `https://referral-frontend-phi.vercel.app//enroll/course/${referralId}`,
     });
   } catch (error) {
     res
