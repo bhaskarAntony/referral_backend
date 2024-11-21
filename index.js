@@ -35,6 +35,8 @@ app.use('/api', require('./routes/callback'));
 app.use('/api', require('./routes/callback'));
 app.use('/api', require('./routes/refferal'));
 app.use('/api', require('./routes/referredUser'));
+app.use('/api/admin', require('./routes/adminRoutes'));
+app.use('/api/driver', require('./routes/driverRoutes'));
 
 
 // Start server
