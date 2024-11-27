@@ -6,7 +6,7 @@ const routes = express.Router();
 
 // Route to create a new referral
 routes.post('/new/referral', async (req, res) => {
-  const { fullname, course, couponCode } = req.body;
+  const { fullname, course, couponCode, friendphonenumber } = req.body;
 
   // Generate a unique referral ID with uuid
   const referralId = uuidv4().slice(0, 10); // Slice to make it a 10-character ID if needed
@@ -17,6 +17,7 @@ routes.post('/new/referral', async (req, res) => {
       course,
       couponCode,
       referralId,
+      friendphonenumber
     });
     await newReferral.save();
 

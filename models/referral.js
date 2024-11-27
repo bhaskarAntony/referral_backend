@@ -4,6 +4,7 @@ const referralSchema = new mongoose.Schema({
     course: String,
     couponCode: String,
     referralId: String,
+    friendphonenumber:String
   });
   
   const Referral = mongoose.model('Referral', referralSchema);
