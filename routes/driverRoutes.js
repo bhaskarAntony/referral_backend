@@ -40,6 +40,31 @@ router.patch('/update/driver/:driverid', async (req, res) => {
   }
 });
 
+router.delete('/delete/driver/:driverid', async (req, res) => {
+  const { driverid } = req.params;
+
+  try {
+    // Find the driver by ID and delete their data
+    const deletedDriver = await driver.findByIdAndDelete(driverid);
+
+    if (!deletedDriver) {
+      return res.status(404).json({
+        message: "Given driver ID is not found in the drivers database",
+      });
+    }
+
+    res.status(200).json({
+      message: "Driver information deleted successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "An error occurred while deleting driver information",
+      errorData: error.message,
+    });
+  }
+});
+
+
 
 router.get('/verify', protect, async (req, res) => {
   try {
